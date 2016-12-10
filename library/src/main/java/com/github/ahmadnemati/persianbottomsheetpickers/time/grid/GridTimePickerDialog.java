@@ -301,8 +301,8 @@ public class GridTimePickerDialog extends BottomSheetTimePickerDialog
                     mTimePicker.setHalfDay(amOrPm);
                 }
             });
-            mFirstHalfDayToggle.setText(mAmText);
-            mSecondHalfDayToggle.setText(mPmText);
+            mFirstHalfDayToggle.setText(Utils.AM);
+            mSecondHalfDayToggle.setText(Utils.PM);
         }
 
         mAllowAutoAdvance = true;
@@ -392,11 +392,11 @@ public class GridTimePickerDialog extends BottomSheetTimePickerDialog
 
     private void updateAmPmDisplay(int amOrPm) {
         if (amOrPm == HALF_DAY_1) {
-            mAmPmTextView.setText(mAmText);
+            mAmPmTextView.setText(Utils.AM);
             Utils.tryAccessibilityAnnounce(mTimePicker, mAmText);
             mAmPmHitspace.setContentDescription(mAmText);
         } else if (amOrPm == HALF_DAY_2){
-            mAmPmTextView.setText(mPmText);
+            mAmPmTextView.setText(Utils.PM);
             Utils.tryAccessibilityAnnounce(mTimePicker, mPmText);
             mAmPmHitspace.setContentDescription(mPmText);
         } else {
@@ -483,8 +483,8 @@ public class GridTimePickerDialog extends BottomSheetTimePickerDialog
         }
 
         CharSequence text = String.format(format, value);
-        mHourView.setText(text);
-        mHourSpaceView.setText(text);
+        mHourView.setText(Utils.getFarsiCharNumber(String.valueOf(text)));
+        mHourSpaceView.setText(Utils.getFarsiCharNumber(String.valueOf(text)));
         if (announce) {
             Utils.tryAccessibilityAnnounce(mTimePicker, text);
         }
@@ -496,8 +496,8 @@ public class GridTimePickerDialog extends BottomSheetTimePickerDialog
         }
         CharSequence text = String.format(Locale.getDefault(), "%02d", value);
         Utils.tryAccessibilityAnnounce(mTimePicker, text);
-        mMinuteView.setText(text);
-        mMinuteSpaceView.setText(text);
+        mMinuteView.setText(Utils.getFarsiCharNumber(String.valueOf(text)));
+        mMinuteSpaceView.setText(Utils.getFarsiCharNumber(String.valueOf(text)));
     }
 
     // Show either Hours or Minutes.
@@ -733,11 +733,11 @@ public class GridTimePickerDialog extends BottomSheetTimePickerDialog
                 String.format(hourFormat, values[0]).replace(' ', mPlaceholderText);
             String minuteStr = (values[1] == -1)? mDoublePlaceholderText :
                 String.format(minuteFormat, values[1]).replace(' ', mPlaceholderText);
-            mHourView.setText(hourStr);
-            mHourSpaceView.setText(hourStr);
+            mHourView.setText(Utils.getFarsiCharNumber(hourStr));
+            mHourSpaceView.setText(Utils.getFarsiCharNumber(hourStr));
             mHourView.setTextColor(mUnselectedColor);
-            mMinuteView.setText(minuteStr);
-            mMinuteSpaceView.setText(minuteStr);
+            mMinuteView.setText(Utils.getFarsiCharNumber(minuteStr));
+            mMinuteSpaceView.setText(Utils.getFarsiCharNumber(minuteStr));
             mMinuteView.setTextColor(mUnselectedColor);
             if (!mIs24HourMode) {
                 updateAmPmDisplay(values[2]);

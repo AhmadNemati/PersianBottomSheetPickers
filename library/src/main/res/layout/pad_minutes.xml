@@ -24,14 +24,14 @@
     android:columnCount="3"
     android:rowCount="5">
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_0"
         android:nextFocusRight="@+id/minute_5"
         android:nextFocusDown="@+id/minute_15"
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="00" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_5"
         android:nextFocusLeft="@+id/minute_0"
         android:nextFocusRight="@+id/minute_10"
@@ -39,14 +39,14 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="05" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_10"
         android:nextFocusLeft="@+id/minute_5"
         android:nextFocusDown="@+id/minute_25"
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="10" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_15"
         android:nextFocusUp="@+id/minute_0"
         android:nextFocusRight="@+id/minute_20"
@@ -54,7 +54,7 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="15" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_20"
         android:nextFocusUp="@+id/minute_5"
         android:nextFocusLeft="@+id/minute_15"
@@ -63,7 +63,7 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="20" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_25"
         android:nextFocusUp="@+id/minute_10"
         android:nextFocusLeft="@+id/minute_20"
@@ -71,7 +71,7 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="25" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_30"
         android:nextFocusUp="@+id/minute_15"
         android:nextFocusRight="@+id/minute_35"
@@ -79,7 +79,7 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="30" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_35"
         android:nextFocusUp="@+id/minute_20"
         android:nextFocusLeft="@+id/minute_30"
@@ -88,7 +88,7 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="35" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_40"
         android:nextFocusUp="@+id/minute_25"
         android:nextFocusLeft="@+id/minute_35"
@@ -96,7 +96,7 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="40" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_45"
         android:nextFocusUp="@+id/minute_30"
         android:nextFocusRight="@+id/minute_50"
@@ -104,7 +104,7 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="45" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_50"
         android:nextFocusUp="@+id/minute_35"
         android:nextFocusLeft="@+id/minute_45"
@@ -112,7 +112,7 @@
         style="@style/PadButtonStyle.Numeric.Minute"
         android:text="50" />
 
-    <Button
+    <com.github.ahmadnemati.persianbottomsheetpickers.ui.ExtendedButton
         android:id="@+id/minute_55"
         android:nextFocusUp="@+id/minute_40"
         android:nextFocusLeft="@+id/minute_50"
