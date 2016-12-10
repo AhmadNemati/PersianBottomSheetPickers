@@ -103,6 +103,7 @@ public class NumberPadTimePickerDialog extends BottomSheetTimePickerDialog
             mAmPmState = savedInstanceState.getInt(KEY_AMPM_STATE);
             mThemeDark = savedInstanceState.getBoolean(KEY_THEME_DARK);
             mThemeSetAtRuntime = savedInstanceState.getBoolean(KEY_THEME_SET_AT_RUNTIME);
+
         }
     }
 
