@@ -43,8 +43,7 @@ public class TimeTextUtils {
             SpannableString s = new SpannableString(textTime);
             s.setSpan(AMPM_SIZE_SPAN, textTime.indexOf(" "), textTime.length(),
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            Log.e("T",textTime);
-            textView.setText(Utils.getFarsiCharNumber(String.valueOf(s)).replace(Utils.AM,"قبل از ظهر").replace(Utils.PM,"بعد از ظهر"), TextView.BufferType.SPANNABLE);
+            textView.setText(Utils.getFarsiCharNumber(String.valueOf(s)), TextView.BufferType.SPANNABLE);
         } else {
             textView.setText(Utils.getFarsiCharNumber(textTime));
         }
