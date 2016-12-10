@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2014 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<com.github.ahmadnemati.persianbottomsheetpickers.time.grid.MinutesGrid
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pad_numeric"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="3"
+    android:rowCount="5">
+
+    <Button
+        android:id="@+id/minute_0"
+        android:nextFocusRight="@+id/minute_5"
+        android:nextFocusDown="@+id/minute_15"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="00" />
+
+    <Button
+        android:id="@+id/minute_5"
+        android:nextFocusLeft="@+id/minute_0"
+        android:nextFocusRight="@+id/minute_10"
+        android:nextFocusDown="@+id/minute_20"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="05" />
+
+    <Button
+        android:id="@+id/minute_10"
+        android:nextFocusLeft="@+id/minute_5"
+        android:nextFocusDown="@+id/minute_25"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="10" />
+
+    <Button
+        android:id="@+id/minute_15"
+        android:nextFocusUp="@+id/minute_0"
+        android:nextFocusRight="@+id/minute_20"
+        android:nextFocusDown="@+id/minute_30"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="15" />
+
+    <Button
+        android:id="@+id/minute_20"
+        android:nextFocusUp="@+id/minute_5"
+        android:nextFocusLeft="@+id/minute_15"
+        android:nextFocusRight="@+id/minute_25"
+        android:nextFocusDown="@+id/minute_35"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="20" />
+
+    <Button
+        android:id="@+id/minute_25"
+        android:nextFocusUp="@+id/minute_10"
+        android:nextFocusLeft="@+id/minute_20"
+        android:nextFocusDown="@+id/minute_40"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="25" />
+
+    <Button
+        android:id="@+id/minute_30"
+        android:nextFocusUp="@+id/minute_15"
+        android:nextFocusRight="@+id/minute_35"
+        android:nextFocusDown="@+id/minute_45"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="30" />
+
+    <Button
+        android:id="@+id/minute_35"
+        android:nextFocusUp="@+id/minute_20"
+        android:nextFocusLeft="@+id/minute_30"
+        android:nextFocusRight="@+id/minute_40"
+        android:nextFocusDown="@+id/minute_50"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="35" />
+
+    <Button
+        android:id="@+id/minute_40"
+        android:nextFocusUp="@+id/minute_25"
+        android:nextFocusLeft="@+id/minute_35"
+        android:nextFocusDown="@+id/minute_55"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="40" />
+
+    <Button
+        android:id="@+id/minute_45"
+        android:nextFocusUp="@+id/minute_30"
+        android:nextFocusRight="@+id/minute_50"
+        android:nextFocusDown="@+id/dec_min"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="45" />
+
+    <Button
+        android:id="@+id/minute_50"
+        android:nextFocusUp="@+id/minute_35"
+        android:nextFocusLeft="@+id/minute_45"
+        android:nextFocusRight="@+id/minute_55"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="50" />
+
+    <Button
+        android:id="@+id/minute_55"
+        android:nextFocusUp="@+id/minute_40"
+        android:nextFocusLeft="@+id/minute_50"
+        android:nextFocusDown="@+id/inc_min"
+        style="@style/PadButtonStyle.Numeric.Minute"
+        android:text="55" />
+
+    <ImageButton
+        android:id="@+id/dec_min"
+        android:nextFocusUp="@+id/minute_45"
+        android:nextFocusRight="@+id/inc_min"
+        style="@style/PadButtonStyle.MinuteTuner"
+        app:srcCompat="@drawable/ic_minus_circle_24dp" />
+
+    <Space style="@style/PadButtonStyle" />
+
+    <ImageButton
+        android:id="@+id/inc_min"
+        android:nextFocusLeft="@+id/dec_min"
+        android:nextFocusUp="@+id/minute_55"
+        style="@style/PadButtonStyle.MinuteTuner"
+        app:srcCompat="@drawable/ic_add_circle_24dp" />
+
+</com.github.ahmadnemati.persianbottomsheetpickers.time.grid.MinutesGrid>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.bottomsheetpickers.MainActivity">
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:checkedButton="@+id/choice_number_pad">
+
+        <RadioButton
+            android:id="@id/choice_number_pad"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Number Pad, Light"/>
+
+        <RadioButton
+            android:id="@+id/choice_grid_picker"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Grid Picker, Light"/>
+
+        <RadioButton
+            android:id="@+id/choice_number_pad_dark"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Number Pad, Dark"/>
+
+        <RadioButton
+            android:id="@+id/choice_grid_picker_dark"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Grid Picker, Dark"/>
+
+        <RadioButton
+            android:id="@+id/choice_date_picker"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Date Picker, Light"/>
+
+        <RadioButton
+            android:id="@+id/choice_date_picker_dark"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Date Picker, Dark"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:text="Time set: "/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@mipmap/ic_launcher"/>
+
+</RelativeLayout>
