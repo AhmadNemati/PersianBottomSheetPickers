@@ -120,8 +120,9 @@ class NumberPadTimePicker extends GridLayoutNumberPad {
             mAltButtons[1].setText(R.string.right_alt_24hr);
         } else {
             String[] amPmTexts = new DateFormatSymbols().getAmPmStrings();
-            mAltButtons[0].setText(amPmTexts[Calendar.AM]);
-            mAltButtons[1].setText(amPmTexts[Calendar.PM]);
+            mAltButtons[0].setText(Utils.AM);
+            mAltButtons[1].setText(Utils.PM);
+
         }
         updateNumpadStates();
     }
@@ -603,8 +604,7 @@ class NumberPadTimePicker extends GridLayoutNumberPad {
                 // text is AM or PM, so include space before
                 String ampm = altBtn.getText().toString();
                 mFormattedInput.append(' ').append(ampm);
-                String am = new DateFormatSymbols().getAmPmStrings()[0];
-                mAmPmState = ampm.equals(am) ? AM : PM;
+                mAmPmState = ampm.equals(Utils.AM) ? AM : PM;
                 // Digits will be shown for you on insert, but not AM/PM
                 NumberPadTimePicker.super/*TOneverDO: remove super*/.onDigitInserted(mFormattedInput.toString());
             } else {

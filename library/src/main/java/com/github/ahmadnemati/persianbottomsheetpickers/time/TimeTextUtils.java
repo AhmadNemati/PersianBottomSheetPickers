@@ -19,7 +19,10 @@ package com.github.ahmadnemati.persianbottomsheetpickers.time;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
+import android.util.Log;
 import android.widget.TextView;
+
+import com.github.ahmadnemati.persianbottomsheetpickers.Utils;
 
 public class TimeTextUtils {
 
@@ -36,13 +39,14 @@ public class TimeTextUtils {
      */
     public static void setText(String textTime, TextView textView) {
         // TODO: This is not localized. Get the AM/PM translation from DateFormatSymbols.
-        if (textTime.contains("AM") || textTime.contains("PM")) {
+        if (textTime.contains(Utils.AM) || textTime.contains(Utils.PM)) {
             SpannableString s = new SpannableString(textTime);
             s.setSpan(AMPM_SIZE_SPAN, textTime.indexOf(" "), textTime.length(),
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            textView.setText(s, TextView.BufferType.SPANNABLE);
+            Log.e("T",textTime);
+            textView.setText(Utils.getFarsiCharNumber(String.valueOf(s)).replace(Utils.AM,"قبل از ظهر").replace(Utils.PM,"بعد از ظهر"), TextView.BufferType.SPANNABLE);
         } else {
-            textView.setText(textTime);
+            textView.setText(Utils.getFarsiCharNumber(textTime));
         }
     }
 }

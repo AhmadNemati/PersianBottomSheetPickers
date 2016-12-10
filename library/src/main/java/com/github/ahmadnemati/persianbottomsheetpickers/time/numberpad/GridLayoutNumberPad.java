@@ -291,7 +291,9 @@ abstract class GridLayoutNumberPad extends GridLayout implements View.OnClickLis
         mButtons[9] = (TextView) findViewById(R.id.nine);
         for (TextView tv : mButtons) {
             tv.setOnClickListener(this);
+            tv.setText(Utils.getFarsiCharNumber(tv.getText().toString()));
         }
+
         // If capacity() < 0, we let the system throw the exception.
         mInput = new int[capacity()];
         Arrays.fill(mInput, UNMODIFIED);

@@ -55,6 +55,8 @@ public class Utils {
     public static final int SELECTED_ALPHA_THEME_DARK = 255;
     // Alpha level for fully opaque.
     public static final int FULL_ALPHA = 255;
+    public static final String PM="ب\u200Cظ";
+    public static final String AM="ق\u200Cظ";
 
     static final String SHARED_PREFS_NAME = "com.android.calendar_preferences";
 
@@ -289,5 +291,9 @@ public class Utils {
         } finally {
             a.recycle();
         }
+    }
+    public static String getFarsiCharNumber(String number) {
+        return number.replace("1", "۱").replace("2", "۲").replace("3", "۳").replace("4", "۴").replace("5", "۵").replace("6", "۶").replace("7", "۷").replace("8", "۸").replace("9", "۹")
+                .replace("0", "۰");
     }
 }
