@@ -34,90 +34,16 @@ import java.util.HashMap;
  */
 public abstract class MonthAdapter extends BaseAdapter implements OnDayClickListener {
 
+    protected static final int MONTHS_IN_YEAR = 12;
     private static final String TAG = "SimpleMonthAdapter";
-
-    private final Context mContext;
+    protected static int WEEK_7_OVERHANG_HEIGHT = 7;
     protected final DatePickerController mController;
+    private final Context mContext;
     private final boolean mThemeDark;
-
     private CalendarDay mSelectedDay;
 
-    protected static int WEEK_7_OVERHANG_HEIGHT = 7;
-    protected static final int MONTHS_IN_YEAR = 12;
-
-    /**
-     * A convenience class to represent a specific date.
-     */
-    public static class CalendarDay {
-        private Calendar calendar;
-        private Time time;
-        int year;
-        int month;
-        int day;
-
-        public CalendarDay() {
-            setTime(System.currentTimeMillis());
-        }
-
-        public CalendarDay(long timeInMillis) {
-            setTime(timeInMillis);
-        }
-
-        public CalendarDay(Calendar calendar) {
-            year = calendar.get(Calendar.YEAR);
-            month = calendar.get(Calendar.MONTH);
-            day = calendar.get(Calendar.DAY_OF_MONTH);
-        }
-
-        public CalendarDay(int year, int month, int day) {
-            setDay(year, month, day);
-        }
-
-        public void set(CalendarDay date) {
-            year = date.year;
-            month = date.month;
-            day = date.day;
-        }
-
-        public void setDay(int year, int month, int day) {
-            this.year = year;
-            this.month = month;
-            this.day = day;
-        }
-
-        public synchronized void setJulianDay(int julianDay) {
-            if (time == null) {
-                time = new Time();
-            }
-            time.setJulianDay(julianDay);
-            setTime(time.toMillis(false));
-        }
-
-        private void setTime(long timeInMillis) {
-            if (calendar == null) {
-                calendar = Calendar.getInstance();
-            }
-            calendar.setTimeInMillis(timeInMillis);
-            month = calendar.get(Calendar.MONTH);
-            year = calendar.get(Calendar.YEAR);
-            day = calendar.get(Calendar.DAY_OF_MONTH);
-        }
-
-        public int getYear() {
-            return year;
-        }
-
-        public int getMonth() {
-            return month;
-        }
-
-        public int getDay() {
-            return day;
-        }
-    }
-
     public MonthAdapter(Context context,
-            DatePickerController controller) {
+                        DatePickerController controller) {
         this(context, controller, false);
     }
 
@@ -131,6 +57,10 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         setSelectedDay(mController.getSelectedDay());
     }
 
+    public CalendarDay getSelectedDay() {
+        return mSelectedDay;
+    }
+
     /**
      * Updates the selected day and related parameters.
      *
@@ -139,10 +69,6 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
     public void setSelectedDay(CalendarDay day) {
         mSelectedDay = day;
         notifyDataSetChanged();
-    }
-
-    public CalendarDay getSelectedDay() {
-        return mSelectedDay;
     }
 
     /**
@@ -225,7 +151,6 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         return mSelectedDay.year == year && mSelectedDay.month == month;
     }
 
-
     @Override
     public void onDayClick(MonthView view, CalendarDay day) {
         if (day != null) {
@@ -242,5 +167,76 @@ public abstract class MonthAdapter extends BaseAdapter implements OnDayClickList
         mController.tryVibrate();
         mController.onDayOfMonthSelected(day.year, day.month, day.day);
         setSelectedDay(day);
+    }
+
+    /**
+     * A convenience class to represent a specific date.
+     */
+    public static class CalendarDay {
+        int year;
+        int month;
+        int day;
+        private Calendar calendar;
+        private Time time;
+
+        public CalendarDay() {
+            setTime(System.currentTimeMillis());
+        }
+
+        public CalendarDay(long timeInMillis) {
+            setTime(timeInMillis);
+        }
+
+        public CalendarDay(Calendar calendar) {
+            year = calendar.get(Calendar.YEAR);
+            month = calendar.get(Calendar.MONTH);
+            day = calendar.get(Calendar.DAY_OF_MONTH);
+        }
+
+        public CalendarDay(int year, int month, int day) {
+            setDay(year, month, day);
+        }
+
+        public void set(CalendarDay date) {
+            year = date.year;
+            month = date.month;
+            day = date.day;
+        }
+
+        public void setDay(int year, int month, int day) {
+            this.year = year;
+            this.month = month;
+            this.day = day;
+        }
+
+        public synchronized void setJulianDay(int julianDay) {
+            if (time == null) {
+                time = new Time();
+            }
+            time.setJulianDay(julianDay);
+            setTime(time.toMillis(false));
+        }
+
+        private void setTime(long timeInMillis) {
+            if (calendar == null) {
+                calendar = Calendar.getInstance();
+            }
+            calendar.setTimeInMillis(timeInMillis);
+            month = calendar.get(Calendar.MONTH);
+            year = calendar.get(Calendar.YEAR);
+            day = calendar.get(Calendar.DAY_OF_MONTH);
+        }
+
+        public int getYear() {
+            return year;
+        }
+
+        public int getMonth() {
+            return month;
+        }
+
+        public int getDay() {
+            return day;
+        }
     }
 }

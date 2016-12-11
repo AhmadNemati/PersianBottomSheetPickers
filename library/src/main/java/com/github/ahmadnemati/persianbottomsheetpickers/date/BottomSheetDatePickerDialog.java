@@ -132,6 +132,20 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
         return ret;
     }
 
+    private static String formatMonthDayYear(Calendar calendar) {
+        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_SHOW_YEAR;
+        return formatDateTime(calendar, flags);
+    }
+
+    private static String formatMonthAndDay(Calendar calendar) {
+        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_NO_YEAR;
+        return formatDateTime(calendar, flags);
+    }
+
+    private static String formatDateTime(Calendar calendar, int flags) {
+        return DateUtils.formatDateTime(null, calendar.getTimeInMillis(), flags);
+    }
+
     public void initialize(OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
         mCallBack = callBack;
         mCalendar.set(Calendar.YEAR, year);
@@ -322,7 +336,7 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
                 break;
         }
     }
-    
+
     private void updateHeaderSelectedView(final int viewIndex) {
         switch (viewIndex) {
             case MONTH_AND_DAY_VIEW:
@@ -366,16 +380,6 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
         }
     }
 
-    private static String formatMonthDayYear(Calendar calendar) {
-        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_SHOW_YEAR;
-        return formatDateTime(calendar, flags);
-    }
-
-    private static String formatMonthAndDay(Calendar calendar) {
-        int flags = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_NO_YEAR;
-        return formatDateTime(calendar, flags);
-    }
-
     private String extractYearFromFormattedDate(String formattedDate, String monthAndDay) {
         String[] parts = formattedDate.split(monthAndDay);
         for (String part : parts) {
@@ -415,21 +419,6 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
         }
     }
 
-    private static String formatDateTime(Calendar calendar, int flags) {
-        return DateUtils.formatDateTime(null, calendar.getTimeInMillis(), flags);
-    }
-
-    public void setFirstDayOfWeek(int startOfWeek) {
-        if (startOfWeek < Calendar.SUNDAY || startOfWeek > Calendar.SATURDAY) {
-            throw new IllegalArgumentException("Value must be between Calendar.SUNDAY and " +
-                    "Calendar.SATURDAY");
-        }
-        mWeekStart = startOfWeek;
-        if (mDayPickerView != null) {
-            mDayPickerView.onChange();
-        }
-    }
-
     public void setYearRange(int startYear, int endYear) {
         if (endYear <= startYear) {
             throw new IllegalArgumentException("Year end must be larger than year start");
@@ -439,6 +428,14 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
         if (mDayPickerView != null) {
             mDayPickerView.onChange();
         }
+    }
+
+    /**
+     * @return The minimal date supported by this DatePicker. Null if it has not been set.
+     */
+    @Override
+    public Calendar getMinDate() {
+        return mMinDate;
     }
 
     /**
@@ -455,11 +452,11 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
     }
 
     /**
-     * @return The minimal date supported by this DatePicker. Null if it has not been set.
+     * @return The maximal date supported by this DatePicker. Null if it has not been set.
      */
     @Override
-    public Calendar getMinDate() {
-        return mMinDate;
+    public Calendar getMaxDate() {
+        return mMaxDate;
     }
 
     /**
@@ -473,14 +470,6 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
         if (mDayPickerView != null) {
             mDayPickerView.onChange();
         }
-    }
-
-    /**
-     * @return The maximal date supported by this DatePicker. Null if it has not been set.
-     */
-    @Override
-    public Calendar getMaxDate() {
-        return mMaxDate;
     }
 
     public void setOnDateSetListener(OnDateSetListener listener) {
@@ -534,7 +523,6 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
         }
     }
 
-
     @Override
     public CalendarDay getSelectedDay() {
         return new CalendarDay(mCalendar);
@@ -553,6 +541,17 @@ public class BottomSheetDatePickerDialog extends DatePickerDialog implements
     @Override
     public int getFirstDayOfWeek() {
         return mWeekStart;
+    }
+
+    public void setFirstDayOfWeek(int startOfWeek) {
+        if (startOfWeek < Calendar.SUNDAY || startOfWeek > Calendar.SATURDAY) {
+            throw new IllegalArgumentException("Value must be between Calendar.SUNDAY and " +
+                    "Calendar.SATURDAY");
+        }
+        mWeekStart = startOfWeek;
+        if (mDayPickerView != null) {
+            mDayPickerView.onChange();
+        }
     }
 
     @Override

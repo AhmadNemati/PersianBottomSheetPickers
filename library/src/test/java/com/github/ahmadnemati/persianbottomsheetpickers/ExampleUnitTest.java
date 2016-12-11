@@ -1,8 +1,10 @@
 package com.github.ahmadnemati.persianbottomsheetpickers;
 
+
+import com.github.ahmadnemati.persianbottomsheetpickers.utils.PersianCalendar;
+
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +14,11 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+        System.out.println(System.currentTimeMillis());
+        PersianCalendar persianCalendar = new PersianCalendar(System.currentTimeMillis());
+        System.out.println(persianCalendar.getPersianLongDateAndTime());
+        System.out.println(persianCalendar.getTimeInMillis());
     }
+
+
 }
